@@ -56,13 +56,11 @@ RSpec.describe "Sums", type: :request do
       expect(JSON.parse(response.body)).to eq({ "sum" => 5 })
     end
 
-    it "ignores numbers 1000 or more" do
+    it "sums numbers from a real-world sentence" do
       post "/sum", params: { input: "22 buses having 368 passengers going in 12 different directions" }
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body)).to eq({ "sum" => 402 })
     end
    
-   
-  
   end
 end

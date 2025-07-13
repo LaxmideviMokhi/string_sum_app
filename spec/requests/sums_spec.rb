@@ -56,7 +56,7 @@ RSpec.describe "Sums", type: :request do
       expect(JSON.parse(response.body)).to eq({ "sum" => 5 })
     end
 
-    it "sums numbers from a real-world sentence" do
+    it "sums numbers from a real-world example" do
       post "/sum", params: { input: "22 buses having 368 passengers going in 12 different directions" }
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body)).to eq({ "sum" => 402 })
